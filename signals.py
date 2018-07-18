@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 import sys
 
-from PyQt5.QtWidgets import (
+from PySide2.QtWidgets import (
     QApplication, QDialog, QLineEdit, QProgressBar,
     QLabel, QHBoxLayout
 )
-from PyQt5.QtGui import QIntValidator
-from PyQt5.QtCore import pyqtSlot, pyqtSignal
+from PySide2.QtGui import QIntValidator
+from PySide2.QtCore import Slot, Signal
 
 
 class ProgressBar_Dialog(QDialog):
@@ -32,7 +32,7 @@ class ProgressBar_Dialog(QDialog):
 
         self.show()
 
-    @pyqtSlot(int)
+    @Slot(int)
     def set_slider_value(self, val):
         self.progressBar.setValue(val)
 
@@ -42,7 +42,7 @@ class ProgressBar_Dialog(QDialog):
 
 class Number_Dialog(QDialog):
 
-    changedValue = pyqtSignal(int)
+    changedValue = Signal(int)
 
     def __init__(self):
         super(Number_Dialog, self).__init__()
